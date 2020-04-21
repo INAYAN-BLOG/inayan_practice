@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>交通費</title>
+  <link rel="stylesheet" href="koutsuuhi.css">
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+  <div>交通費計算</div>
+  <div><a href="../toppage/toppage.html">トップページ</a></div>
+  <div><a href="koutsuuhi.html">どっちで買ったほうがお得？</a></div>
+</div>
+<div id="content">
+  <h1>どっちで買ったほうがお得？</h1>
+  <form>
+  <div id="box_1">
+     <label for="item_1">片道交通費</label>
+     <input type="text" id="item_1">
+  </div>  
+   <div id="box_2">
+    <label for="item_2">出勤日数</label>
+    <input type="text" id="item_2">
+   </div>
+  <div id="box_3">
+     <label for="item_3">１ヶ月の定期代</label>
+     <input type="text" id="item_3">
+  </div>
+  <button id="btn">計算する</button>
+  <div id="kekka"></div>
+</div>
+</form>
+ <div class="footer">
+   <p>(c)コピーライト</p>
+</div> 
+<script>
+ var btn=document.getElementById('btn');
+ btn.addEventListener('click',function(e){
+ e.preventDefault();
+ var item_1=document.getElementById('item_1').value; 
+ var item_2=document.getElementById('item_2').value;
+ var item_3=document.getElementById('item_3').value;
+ var result=parseInt(item_1,10)*2*parseInt(item_2,10)-parseInt(item_3,10);
+ var kekka=document.getElementById('kekka');
+if(result>0){
+  kekka.innerHTML="定期で買ったほうが"+result+"円お得！";
+}else if (result==0) {
+  kekka.innerHTML="どっちでもいいよ！";
+}else{
+  kekka.innerHTML="切符で買ったほうが"+(-result)+"円お得！";
+}
+});
+</script>
+</body>
+</html>
